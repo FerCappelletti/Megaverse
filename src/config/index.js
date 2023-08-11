@@ -5,7 +5,7 @@ require("dotenv").config();
 let CONFIG = {
     port: process.env.PORT || '3000',
     candidateId: process.env.CANDIDATE_ID,
-    url: process.env.BASE_URL,
+    baseUrl: process.env.BASE_URL,
     apiUrl: process.env.API_URL
 } 
 

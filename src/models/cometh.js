@@ -1,18 +1,19 @@
 const {candidateId, apiUrl} = require('../config/index')
 const { fetchData } = require('../uitils/fetchData');
 
-class Polyanet  {
-    constructor(row, column){
+class Cometh  {
+    constructor(row, column, direction){
         this.row = row,
-        this.column = column
+        this.column = column,
+        this.direction = direction
     }
     async create() {
-      let url = `${apiUrl}/polyanets`;
+      let url = `${apiUrl}/comeths`;
         try {
       
-          const data = { row: this.row, column: this.column, candidateId };
+          const data = { row: this.row, column: this.column, direction: this.direction,candidateId };
           const response = await fetchData("post", url, data);
-          console.log('Created 🪐POLYanet' );
+          console.log('Created ☄comETHs' );
           return response.data
         } catch (error) {
           console.log(error)
@@ -20,4 +21,4 @@ class Polyanet  {
         }
       }
 }
-module.exports ={ Polyanet}
+module.exports ={ Cometh}

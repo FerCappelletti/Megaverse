@@ -1,12 +1,13 @@
-const polyanetServices = require('../services/polyanet')
+const getGoalMap = require('../services/goalMap')
+const currentMap = require('../services/currentMap')
 const {Polyanet} = require('../models/poliyanet')
 
 
 const createPolyanet = async (req, res) => {
    // step1: get current map
-    const current = await polyanetServices.currentMap()
+    const current = await currentMap()
     // step2: get goal map
-    const goalMap = await polyanetServices.getGoalMap()
+    const goalMap = await getGoalMap()
 
     //if both maps are different, means my megaverse is not created
     if(JSON.stringify(current.content) !== JSON.stringify(goalMap)){
@@ -20,7 +21,7 @@ const createPolyanet = async (req, res) => {
                 await newPolyanet.create()
             }
 
-            await new Promise(resolve => setTimeout(resolve, 1000))
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     res.send('Your POLYanet is created')

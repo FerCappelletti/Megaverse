@@ -11,9 +11,19 @@ const currentMap = async (req, res) => {
 
 const getGoalMap = async () => {
     const goalMap = await axios.get(`${apiUrl}/map/${candidateId}/goal`)
-    
     return goalMap.data.goal
 } 
 
-module.exports = {currentMap,getGoalMap}
+const getIndex = (arr, value) => {
+    const indexes = []
+    for(let row=0; row < arr.length; row++){
+        for(let column= 0; column < arr.length; column ++){
+            if(arr[row][column] === value){
+                indexes.push({row: row, column:column})
+            }
+        }
+    }
+        return Object.values(indexes) 
+}
+module.exports = {currentMap,getGoalMap, getIndex}
 

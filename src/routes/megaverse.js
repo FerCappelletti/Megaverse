@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const polyanetConttroller = require('../controllers/poliyanet')
+const megaverseController = require('../controllers/megaverse')
 const polyanetServices = require('../services/polyanet')
 //get your current map
 router.get('/', async (req, res, next) => {
@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
     
 });
 
-router.post('/', polyanetConttroller.createPolyanet);
+router.post('/', megaverseController.createMegaverse);
 
 
 module.exports = router
